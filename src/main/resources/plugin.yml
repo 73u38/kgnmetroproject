@@ -1,0 +1,9 @@
+name: Kgnmetroticket
+version: ${project.version}
+main: io.github.kgn.kgnmetroticket.Kgnmetroticket
+api-version: 1.15
+authors: [ohhyerin]
+description: kgn custom metro plugins
+commands:
+  metro:
+    description: Open Top Up Menu
