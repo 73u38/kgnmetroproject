@@ -85,12 +85,12 @@ public class ConfirmBuyMenu extends Menu implements Listener {
         no.setItemMeta(no_meta);
         ItemStack topup = new ItemStack(Material.DIAMOND, 1);
         ItemMeta topup_meta = yes.getItemMeta();
-        yes_meta.setDisplayName(ChatColor.GREEN + "Yes");
-        yes.setItemMeta(topup_meta);
+        topup_meta.setDisplayName(ChatColor.BLUE + "Top Up");
+        topup.setItemMeta(topup_meta);
 
-        inventory.setItem(3, yes);
+        inventory.setItem(1, yes);
         inventory.setItem(5, no);
-        inventory.setItem(4, topup);
+        inventory.setItem(8, topup);
 
     }
 

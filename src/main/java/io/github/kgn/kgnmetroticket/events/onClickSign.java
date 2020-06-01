@@ -2,6 +2,7 @@ package io.github.kgn.kgnmetroticket.events;
 
 import io.github.kgn.kgnmetroticket.Kgnmetroticket;
 import io.github.kgn.kgnmetroticket.menusystem.menu.ConfirmBuyMenu;
+import io.github.kgn.kgnmetroticket.menusystem.menu.MainMenu;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -27,7 +28,7 @@ public class onClickSign implements Listener {
                 b.getType() == Material.ACACIA_WALL_SIGN || b.getType() == Material.DARK_OAK_WALL_SIGN) {
             Sign sign = (Sign) b.getState();
             if (ChatColor.stripColor(sign.getLine(0)).equalsIgnoreCase("[Ticket]")) {
-                new ConfirmBuyMenu(Kgnmetroticket.getMetromenu(p)).open();
+                new MainMenu(Kgnmetroticket.getMetromenu(p)).open();
             }
         }
     }
