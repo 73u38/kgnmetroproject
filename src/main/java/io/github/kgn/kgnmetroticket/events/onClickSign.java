@@ -18,7 +18,7 @@ import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 
 import java.util.List;
 
-public class onClickSign implements Listener {
+public class onClickSign implements Listener{
 
     @EventHandler
     public void onClickSign(PlayerInteractEvent e){
@@ -58,6 +58,8 @@ public class onClickSign implements Listener {
                                         int test2 = Integer.parseInt(test);
                                         test2 = test2-100;
                                         System.out.println(test2);
+                                        testing
+
                                     }
                                 }
                             }
