@@ -58,7 +58,7 @@ public class onClickSign implements Listener{
                                         int test2 = Integer.parseInt(test);
                                         test2 = test2-100;
                                         System.out.println(test2);
-                                        testing
+
 
                                     }
                                 }
