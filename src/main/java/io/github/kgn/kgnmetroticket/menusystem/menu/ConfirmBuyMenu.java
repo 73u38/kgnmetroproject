@@ -56,7 +56,6 @@ public class ConfirmBuyMenu extends Menu implements Listener {
                 if(response.transactionSuccess()){
                     p.sendMessage(ChatColor.GREEN + "Success");
                     ticket.add(p);
-                    counter++;
                     break;
                 }else {
                     p.sendMessage(ChatColor.RED + "Failed");
@@ -66,6 +65,9 @@ public class ConfirmBuyMenu extends Menu implements Listener {
                 e.getWhoClicked().closeInventory();
                 break;
 
+            case DIAMOND:
+                e.getWhoClicked().closeInventory();
+                break;
 
         }
     }
@@ -81,9 +83,14 @@ public class ConfirmBuyMenu extends Menu implements Listener {
         ItemMeta no_meta = no.getItemMeta();
         no_meta.setDisplayName(ChatColor.DARK_RED + "No");
         no.setItemMeta(no_meta);
+        ItemStack topup = new ItemStack(Material.DIAMOND, 1);
+        ItemMeta topup_meta = yes.getItemMeta();
+        yes_meta.setDisplayName(ChatColor.GREEN + "Yes");
+        yes.setItemMeta(topup_meta);
 
         inventory.setItem(3, yes);
         inventory.setItem(5, no);
+        inventory.setItem(4, topup);
 
     }
 
