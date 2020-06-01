@@ -22,7 +22,8 @@ public class MainMenu extends Menu implements Listener {
 
     @Override
     public String getMenuName() {
-        return "KGN Metro Ticket Machine";
+
+        return ChatColor.AQUA + "KGN Metro TM";
     }
 
     @Override
@@ -35,11 +36,14 @@ public class MainMenu extends Menu implements Listener {
         Player p = (Player) e.getWhoClicked();
         switch (e.getCurrentItem().getType()) {
             case GREEN_WOOL:
-                new ConfirmBuyMenu(Kgnmetroticket.getMetromenu(p)).open();
+                new ConfirmSingleBuyMenu(Kgnmetroticket.getMetromenu(p)).open();
+                break;
             case BLUE_WOOL:
                 new ConfirmBuyMenu(Kgnmetroticket.getMetromenu(p)).open();
+                break;
             case ORANGE_WOOL:
                 new ConfirmBuyMenu(Kgnmetroticket.getMetromenu(p)).open();
+                break;
             case BARRIER:
                 e.getWhoClicked().closeInventory();
                 break;

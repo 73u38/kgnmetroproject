@@ -22,20 +22,21 @@ import java.util.Arrays;
 import java.util.List;
 
 
-public class ConfirmBuyMenu extends Menu implements Listener {
+public class ConfirmSingleBuyMenu extends Menu implements Listener {
 
 
-    public ConfirmBuyMenu(MetroMenu mm) {
+    public ConfirmSingleBuyMenu(MetroMenu mm) {
         super(mm);
     }
 
     @Override
     public String getMenuName() {
-        return ChatColor.AQUA+"Metro KGN TM| Confirm Buy Ticket?";
+        return ChatColor.AQUA+"Metro KGN TM| Confirm Buy Single Trip Ticket?";
     }
 
     @Override
     public int getSlots() {
+
         return 9;
     }
 
@@ -45,24 +46,23 @@ public class ConfirmBuyMenu extends Menu implements Listener {
         Player p = (Player) e.getWhoClicked();
         PlayerInventory inventory = p.getInventory();
         int counter = 0;
-        int balance = 500;
         String cs = Integer.toString(counter);
-        List<String> list = Arrays.asList("A-"+cs,ChatColor.GOLD+"Balance:"+balance+"$");
+        List<String> list = Arrays.asList("A-"+cs);
         Ticket ticket = new Ticket(Material.NAME_TAG, ChatColor.AQUA +"Metro Ticket",list);
         switch(e.getCurrentItem().getType()){
-            case GREEN_WOOL:
+            case EMERALD:
                 e.getWhoClicked().closeInventory();
                 EconomyResponse response = eco.withdrawPlayer(p, 5.0);
                 if(response.transactionSuccess()){
-                    p.sendMessage(ChatColor.GREEN + "Success");
+                    p.sendMessage(ChatColor.GREEN + "Success! You get single trip ticket");
                     ticket.add(p);
                     break;
                 }else {
-                    p.sendMessage(ChatColor.RED + "Failed");
+                    p.sendMessage(ChatColor.RED + "Failed! You dont have enough money");
                     break;
                 }
             case BARRIER:
-                e.getWhoClicked().closeInventory();
+                new MainMenu(Kgnmetroticket.getMetromenu(p)).open();
                 break;
 
         }
@@ -80,11 +80,8 @@ public class ConfirmBuyMenu extends Menu implements Listener {
         no_meta.setDisplayName(ChatColor.DARK_RED + "No");
         no.setItemMeta(no_meta);
 
-
         inventory.setItem(2, yes);
         inventory.setItem(6, no);
-
-
     }
 
 }
