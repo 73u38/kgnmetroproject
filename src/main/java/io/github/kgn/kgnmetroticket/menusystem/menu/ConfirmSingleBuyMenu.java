@@ -45,12 +45,10 @@ public class ConfirmSingleBuyMenu extends Menu implements Listener {
         Economy eco = Kgnmetroticket.getEconomy();
         Player p = (Player) e.getWhoClicked();
         PlayerInventory inventory = p.getInventory();
-        int counter = 0;
-        String cs = Integer.toString(counter);
-        List<String> list = Arrays.asList("A-"+cs);
+        List<String> list = Arrays.asList("Single Ticket","Issued by Metro Kgn");
         Ticket ticket = new Ticket(Material.NAME_TAG, ChatColor.AQUA +"Metro Ticket",list);
         switch(e.getCurrentItem().getType()){
-            case EMERALD:
+            case GREEN_WOOL:
                 e.getWhoClicked().closeInventory();
                 EconomyResponse response = eco.withdrawPlayer(p, 5.0);
                 if(response.transactionSuccess()){

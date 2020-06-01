@@ -47,22 +47,22 @@ public class ConfirmBuyMenu extends Menu implements Listener {
         int counter = 0;
         int balance = 500;
         String cs = Integer.toString(counter);
-        List<String> list = Arrays.asList("A-"+cs,ChatColor.GOLD+"Balance:"+balance+"$");
+        List<String> list = Arrays.asList("Issued by Metro Kgn","A-"+cs,ChatColor.GOLD+"Balance:"+balance+"$");
         Ticket ticket = new Ticket(Material.NAME_TAG, ChatColor.AQUA +"Metro Ticket",list);
         switch(e.getCurrentItem().getType()){
             case GREEN_WOOL:
                 e.getWhoClicked().closeInventory();
                 EconomyResponse response = eco.withdrawPlayer(p, 5.0);
                 if(response.transactionSuccess()){
-                    p.sendMessage(ChatColor.GREEN + "Success");
+                    p.sendMessage(ChatColor.GREEN + "Success! You get Metro ticket,Don't Forget to topup!");
                     ticket.add(p);
                     break;
                 }else {
-                    p.sendMessage(ChatColor.RED + "Failed");
+                    p.sendMessage(ChatColor.RED + "Failed! You dont have enough money");
                     break;
                 }
             case BARRIER:
-                e.getWhoClicked().closeInventory();
+                new MainMenu(Kgnmetroticket.getMetromenu(p)).open();
                 break;
 
         }
