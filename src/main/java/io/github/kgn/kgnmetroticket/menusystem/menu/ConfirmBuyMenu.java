@@ -47,7 +47,7 @@ public class ConfirmBuyMenu extends Menu implements Listener {
         int counter = 0;
         int balance = 500;
         String cs = Integer.toString(counter);
-        List<String> list = Arrays.asList("Issued by Metro Kgn","A-"+cs,ChatColor.GOLD+"Balance:"+balance+"$");
+        List<String> list = Arrays.asList("Multiple Ticket","Issued by Metro Kgn","A-"+cs,ChatColor.GOLD+"Balance:"+balance+"$");
         Ticket ticket = new Ticket(Material.NAME_TAG, ChatColor.AQUA +"Metro Ticket",list);
         switch(e.getCurrentItem().getType()){
             case GREEN_WOOL:
